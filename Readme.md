@@ -418,9 +418,18 @@ Commercial support is available at
 ```
 8. Avec vos mots, expliquez le concept de service dans kubernetes.
 ```
+Les services permettent de gérer la partie réseau au sein des pods, par exemple avec le service nodeport ou loadbalancers. Nous pouvons donner un accès externe aux utilisateurs ou bien via le service clusterIP qui permet la communication entre plusieurs pods, par exemple avec un Front-end et Back-end. Sans ses services, nous serions bien embêtés pour faire communiquer nos pods entre eux ou tout simplement accéder au service rendu via un accès externe.
 
 ```
 9. Avec vos mots, expliquez les différences entre un service de type LoadBalancer, ClusterIp && NodePort.
 ```
+LoadBalancer :
+Le service n'est disponible qu'auprès d'un cloud provider, il permet d'exposer l'application à l'extérieur avec un mécanisme de partage de charge pour partager le trafic sur l'ensemble des Pods d'un même service. Le service utilise également les services ClusterIP et NodePort pour fonctionner.
 
+ClusterIP :
+Il permet la communication entre différents pods à l'intérieur d'un cluster Kubernetes.
+
+NodePort :
+Il permet d'exposer un service sur un numéro de port fixe, grâce à cela nous pouvons accéder à l'application depuis l'extérieur, mais le service n'effectue pas de partage de charge.
+Il peut être couplé avec le service ClusterIP dans le cas où il y a plusieurs pods du même service.
 ```
